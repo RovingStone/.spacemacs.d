@@ -36,19 +36,26 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     (auto-completion :variables
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-return-key-behavior 'complete)
+     colors
+     git
      helm
-     ;; auto-completion
-     ;; better-defaults
-     emacs-lisp
-     ;; git
-     ;; markdown
-     ;; org
+     semantic
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default nil)
+     version-control
+     ;; Langs
+     asm
+     c-c++
+     emacs-lisp
+     ruby
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -303,6 +310,24 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; (eval-after-load 'smartparens
+  ;;   '(progn
+  ;;      (sp-local-pair 'ruby-mode "module" nil :actions :rem)))
+
+  (global-hl-line-mode -1)
+
+  (use-package simple
+    :defer t
+    :config
+    (progn
+      (setq save-interprogram-paste-before-kill t
+            create-lockfiles nil
+            make-backup-files nil)))
+
+  (setq display-time-24hr-format t)
+  (display-time-mode 1)
+  (setq-default c-default-style "k&r"
+                c-basic-offset 4)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -314,7 +339,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+    (git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl x86-lookup stickyfunc-enhance srefactor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake rainbow-mode rainbow-identifiers nasm-mode minitest disaster company-c-headers color-identifiers-mode cmake-mode clang-format chruby bundler inf-ruby flycheck-pos-tip pos-tip flycheck helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete smeargle orgit org magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
