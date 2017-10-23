@@ -1,0 +1,56 @@
+#+TITLE: polymode layer
+
+# The maximum height of the logo should be 200 pixels.
+[[img/polymode.png]]
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+  - [[#backends][Backends]]
+  - [[#navigation][Navigation]]
+  - [[#manipulation][Manipulation]]
+
+* Description
+Polymode is an emacs package that offers generic support for multiple major 
+modes inside a single emacs buffer. It is lightweight, object oriented
+and highly extensible.
+
+Polymode also provides extensible facilities for external literate programming
+tools for exporting, weaving and tangling.
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =polymode= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+** Backends
+
+| Key Binding | Description                  |
+|-------------+------------------------------|
+| ~SPC P e~   | polymode-export              |
+| ~SPC P E~   | polymode-set-export          |
+| ~SPC P w~   | polymode-weave               |
+| ~SPC P W~   | polymode-set-weaver          |
+| ~SPC P t~   | polymode-tangle              |
+| ~SPC P T~   | polymode-set-tangler         |
+| ~SPC P $~   | polymode-show-process buffer |
+
+** Navigation
+
+| Key Binding | Description                             |
+|-------------+-----------------------------------------|
+| ~SPC P n~   | Go to the next chunk                    |
+| ~SPC P p~   | Go to the previous chunk                |
+| ~SPC P N~   | Go to the next chunk with same type     |
+| ~SPC P P~   | Go to the previous chunk with same type |
+
+** Manipulation
+
+| Key Binding | Description                     |
+|-------------+---------------------------------|
+| ~SPC P k~   | polymode-kill-chunk             |
+| ~SPC P m~   | polymode-mark-or-extend-chunk   |
+| ~SPC P t~   | polymode-toggle-chunk-narrowing |
+| ~SPC P i~   | polymode-insert-new-chunk       |
