@@ -78,6 +78,7 @@ values."
      ;; Personal layers
      google-style
      polymode
+     vernier ;; private layer
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
