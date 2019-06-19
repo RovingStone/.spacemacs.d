@@ -1,0 +1,22 @@
+#+TITLE: Dict layer
+
+[[file:img/dict.png]]
+
+* Table of Contents                                       :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+This layer adds support for Goldendict program.
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =dict= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+
+| Key Binding | Description    |
+|-------------+----------------|
+| ~SPC o t~   | Translate word |
