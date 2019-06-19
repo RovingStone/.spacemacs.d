@@ -1,0 +1,13 @@
+#+TITLE: org-config layer
+
+* Table of Contents                                       :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+
+* Description
+Based on [[https://github.com/nickanderson/org-config][org-config]] layer
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =org-config= to the existing =dotspacemacs-configuration-layers= list in this
+file.
